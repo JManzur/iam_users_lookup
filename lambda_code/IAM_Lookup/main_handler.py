@@ -24,8 +24,14 @@ def lambda_handler(event, context):
                     'Arn': '{}'.format(Arn)
                 }
                 user_list.append(iam_user)
-    
-        return user_list
+        
+        if len(user_list) > 0:
+            return user_list
+        else:
+            message = {
+                'Message': 'No match found for the regular expression {}'.format(lookup_string) 
+            }
+            return message
 
     except Exception as error:
         logger.error(error)
