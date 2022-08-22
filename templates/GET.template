@@ -1,0 +1,4 @@
+{
+   "http_method": "$context.httpMethod",
+   "lookup_string": "$input.params('lookup_string')"
+}
