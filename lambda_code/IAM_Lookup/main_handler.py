@@ -1,6 +1,6 @@
 import re
 import boto3
-import logging, os
+import logging
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)

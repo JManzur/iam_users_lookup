@@ -18,15 +18,6 @@ data "aws_iam_policy_document" "policy_source" {
     ]
     resources = ["*"]
   }
-
-  statement {
-    sid    = "CrossAccountPermissions"
-    effect = "Allow"
-    actions = [
-      "sts:AssumeRole"
-    ]
-    resources = var.Roles_List
-  }
 }
 
 data "aws_iam_policy_document" "role_source" {

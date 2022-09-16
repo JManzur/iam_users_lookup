@@ -6,8 +6,8 @@ data "aws_caller_identity" "current" {}
 
 # API Gateway definition:
 resource "aws_api_gateway_rest_api" "IAM_Lookup_api" {
-  name        = "AWSInventoryAPI"
-  description = "AWS Inventory API"
+  name        = "IAMLookup"
+  description = "IAM Lookup API"
   endpoint_configuration {
     types = ["EDGE"]
   }
@@ -107,7 +107,7 @@ resource "aws_api_gateway_stage" "v1" {
 # API-Key generation: 
 resource "aws_api_gateway_api_key" "IAM_Lookup_api_key" {
   name        = "IAM_Lookup_api_key"
-  description = "AWS Inventory API API-Key"
+  description = "IAM LookupAPI API-Key"
   enabled     = true
   tags          = { Name = "${var.name-prefix}-api-key" }
 }
@@ -136,7 +136,7 @@ resource "aws_api_gateway_usage_plan_key" "main" {
 
 # GET Trigger:
 resource "aws_lambda_permission" "lambda_get_permission" {
-  statement_id  = "InvokeAWSInventoryAPI"
+  statement_id  = "InvokeIAMLookup"
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.IAM_Lookup.function_name
   principal     = "apigateway.amazonaws.com"

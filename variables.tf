@@ -1,12 +1,14 @@
 # AWS Region: North of Virginia
 variable "aws_region" {
   type    = string
-  default = "us-east-1"
 }
 
 variable "aws_profile" {
   type    = string
-  default = ""
+}
+
+variable "Roles_List" {
+ type = list(string)
 }
 
 /* Tags Variables */
@@ -24,11 +26,4 @@ variable "project-tags" {
 variable "name-prefix" {
   type    = string
   default = "IAM_Lookup"
-}
-
-variable "Roles_List" {
- type = list(string)
- default = [
- 	"arn:aws:iam::959033481857:role/IAM_Lookup"
-	]
 }
